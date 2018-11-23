@@ -17,7 +17,6 @@
             <option value="$PROJECT_DIR$/ffmpegandroiddecoder" />
             <option value="$PROJECT_DIR$/ffmpegandroidplayer" />
             <option value="$PROJECT_DIR$/ffmpegandroidwallpaper" />
-            <option value="$PROJECT_DIR$/lib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
