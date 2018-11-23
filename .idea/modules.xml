@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/ffmpegandroiddecoder/ffmpegandroiddecoder.iml" filepath="$PROJECT_DIR$/ffmpegandroiddecoder/ffmpegandroiddecoder.iml" />
       <module fileurl="file://$PROJECT_DIR$/ffmpegandroidplayer/ffmpegandroidplayer.iml" filepath="$PROJECT_DIR$/ffmpegandroidplayer/ffmpegandroidplayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/ffmpegandroidwallpaper/ffmpegandroidwallpaper.iml" filepath="$PROJECT_DIR$/ffmpegandroidwallpaper/ffmpegandroidwallpaper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib/lib.iml" filepath="$PROJECT_DIR$/lib/lib.iml" />
     </modules>
   </component>
 </project>

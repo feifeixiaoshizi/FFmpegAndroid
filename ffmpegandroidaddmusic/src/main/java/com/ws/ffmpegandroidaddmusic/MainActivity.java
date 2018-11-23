@@ -54,15 +54,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void startDecode() {
 
-        String folderurl= Environment.getExternalStorageDirectory().getPath();
-
+        String folderurl= Environment.getExternalStorageDirectory().getPath()+"/51vv/mvbox";
+        //输入一个视频文件地址
         String videoUrl=folderurl+"/"+editText1.getText().toString();
-
+        //输入一个音频文件地址，作为视频文件的背景音乐
         String musicUrl=folderurl+"/"+editText2.getText().toString();
 
         Log.e("ws-----------videoUrl",videoUrl);
         Log.e("ws------------musicUrl",musicUrl);
 
+        //给视频添加指定的背景音乐
         addBgMusci(videoUrl,musicUrl);
 
     }

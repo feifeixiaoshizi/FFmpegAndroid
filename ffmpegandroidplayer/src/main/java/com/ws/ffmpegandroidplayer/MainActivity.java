@@ -1,10 +1,15 @@
 package com.ws.ffmpegandroidplayer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
+import com.ws.ffmpegandroidplayer.my.PlayVideoActivity;
+import com.ws.ffmpegandroidplayer.test.RecordActivity;
+import com.ws.ffmpegandroidplayer.test.TestRecordActivity;
 
 
 public class MainActivity extends AppCompatActivity implements SurfaceHolder.Callback {
@@ -14,6 +19,8 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
     }
 
     SurfaceHolder surfaceHolder;
+    private View goto_play;
+    private View goto_play1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +29,22 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         SurfaceView surfaceView = (SurfaceView) findViewById(R.id.surface_view);
         surfaceHolder = surfaceView.getHolder();
         surfaceHolder.addCallback(this);
+        goto_play = findViewById(R.id.goto_play);
+        goto_play1 = findViewById(R.id.goto_play_me);
+        goto_play1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,PlayVideoActivity.class);
+                startActivity(intent);
+            }
+        });
+        goto_play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,TestRecordActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -30,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         new Thread(new Runnable() {
             @Override
             public void run() {
+                //surfaceHolder.getSurface().lockCanvas()
                 play(surfaceHolder.getSurface());
             }
         }).start();

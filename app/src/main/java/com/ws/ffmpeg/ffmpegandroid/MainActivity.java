@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
     public native String stringFromJNI();
 
     public native String urlprotocolinfo();

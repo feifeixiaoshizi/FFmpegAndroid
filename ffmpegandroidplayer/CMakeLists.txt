@@ -4,11 +4,14 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-
 add_library(
              native-lib
              SHARED
-             src/main/cpp/native-lib.cpp )
+             src/main/cpp/native-lib.cpp
+             src/main/cpp/classimpl/render_wrapper.cpp
+             src/main/cpp/test/Test.cpp
+             src/main/cpp/test/JavaAudioTrackWrapper.cpp
+             src/main/cpp/classimpl/Render.cpp)
 
 find_library(
               log-lib

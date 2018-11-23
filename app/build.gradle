@@ -35,6 +35,7 @@ android {
 
     externalNativeBuild {
         cmake {
+            //cmake配置文件路径
             path "CMakeLists.txt"
         }
     }

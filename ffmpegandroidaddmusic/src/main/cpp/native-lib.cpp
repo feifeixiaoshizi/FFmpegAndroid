@@ -42,22 +42,27 @@ Java_com_ws_ffmpegandroidaddmusic_MainActivity_addBgMusci(
     const char *in_filename_a =  env->GetStringUTFChars(input_music,NULL);
 
     const char *out_filename = "/storage/emulated/0/wsAddMusic.flv";//Output file URL
+    //注册所有的ffmpeg组件
     av_register_all();
     //Input
-    if ((ret = avformat_open_input(&ifmt_ctx_v, in_filename_v, 0, 0)) < 0) {//打开输入的视频文件
+    //打开输入的视频文件
+    if ((ret = avformat_open_input(&ifmt_ctx_v, in_filename_v, 0, 0)) < 0) {
         LOGE( "Could not open input file.");
         goto end;
     }
-    if ((ret = avformat_find_stream_info(ifmt_ctx_v, 0)) < 0) {//获取视频文件信息
+    //获取视频文件信息
+    if ((ret = avformat_find_stream_info(ifmt_ctx_v, 0)) < 0) {
         LOGE( "Failed to retrieve input stream information");
         goto end;
     }
 
-    if ((ret = avformat_open_input(&ifmt_ctx_a, in_filename_a, 0, 0)) < 0) {//打开输入的音频文件
+    //打开输入的音频文件
+    if ((ret = avformat_open_input(&ifmt_ctx_a, in_filename_a, 0, 0)) < 0) {
         LOGE( "Could not open input file.");
         goto end;
     }
-    if ((ret = avformat_find_stream_info(ifmt_ctx_a, 0)) < 0) {//获取音频文件信息
+    //获取音频文件信息
+    if ((ret = avformat_find_stream_info(ifmt_ctx_a, 0)) < 0) {
         LOGE( "Failed to retrieve input stream information");
         goto end;
     }
@@ -66,7 +71,8 @@ Java_com_ws_ffmpegandroidaddmusic_MainActivity_addBgMusci(
     av_dump_format(ifmt_ctx_a, 0, in_filename_a, 0);
     LOGE("======================================\n");
     //Output
-    avformat_alloc_output_context2(&ofmt_ctx, NULL, NULL, out_filename);//初始化输出码流的AVFormatContext。
+    //初始化输出码流的AVFormatContext
+    avformat_alloc_output_context2(&ofmt_ctx, NULL, NULL, out_filename);
     if (!ofmt_ctx) {
         LOGE( "Could not create output context\n");
         ret = AVERROR_UNKNOWN;
@@ -79,7 +85,8 @@ Java_com_ws_ffmpegandroidaddmusic_MainActivity_addBgMusci(
         //Create output AVStream according to input AVStream
         if(ifmt_ctx_v->streams[i]->codec->codec_type==AVMEDIA_TYPE_VIDEO){
             AVStream *in_stream = ifmt_ctx_v->streams[i];
-            AVStream *out_stream = avformat_new_stream(ofmt_ctx, in_stream->codec->codec);//创建流通道AVStream
+            //创建流通道AVStream
+            AVStream *out_stream = avformat_new_stream(ofmt_ctx, in_stream->codec->codec);
             videoindex_v=i;
             if (!out_stream) {
                 LOGE( "Failed allocating output stream\n");
